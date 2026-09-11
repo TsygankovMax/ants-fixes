@@ -20,7 +20,9 @@
          vertical-align:3px; margin-left:8px; }
   .done { background:rgba(95,214,107,.15); color:var(--ok); }
   .ask  { background:rgba(255,177,59,.15); color:var(--pick); }
-  .pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+  .pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;
+          align-items:start; margin-bottom:14px; }
+  .pair.two { grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
   figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px;
            overflow:hidden; }
   figure img { display:block; width:100%; height:auto; }
@@ -53,9 +55,11 @@
 <section>
   <h2>1. Подписи растянуты<span class="tag done">сделано</span></h2>
   <p class="quote">«надпись "уровень" немного сплюснута» · «После применения x2 скорости "скорость" сплющена на кнопке»</p>
-  <div class="pair">
+  <div class="pair two">
     <figure><img src="img/cap_before.webp" alt="было"><figcaption>было — 265 px</figcaption></figure>
     <figure><img src="img/cap_after.webp" alt="стало"><figcaption>стало — 203 px, своя ширина шрифта</figcaption></figure>
+  </div>
+  <div class="pair two">
     <figure><img src="img/speed_before.webp" alt="было"><figcaption>было — 159 px</figcaption></figure>
     <figure><img src="img/speed_after.webp" alt="стало"><figcaption>стало — 122 px</figcaption></figure>
   </div>
