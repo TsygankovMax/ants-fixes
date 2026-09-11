@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Муравьи: правки 11 сентября</title>
+<style>
+  :root { --bg:#14110e; --card:#1e1a16; --ink:#f2ece4; --dim:#a89c8c; --line:#332c25;
+          --ok:#5fd66b; --pick:#ffb13b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+  .wrap { max-width:1180px; margin:0 auto; padding:28px 18px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--dim); margin:0 0 30px; font-size:15px; }
+  section { border-top:1px solid var(--line); padding:26px 0 6px; }
+  h2 { font-size:20px; margin:0 0 6px; }
+  .quote { color:var(--dim); font-style:italic; margin:0 0 16px; font-size:15px; }
+  .tag { display:inline-block; font-size:12px; padding:2px 9px; border-radius:99px;
+         vertical-align:3px; margin-left:8px; }
+  .done { background:rgba(95,214,107,.15); color:var(--ok); }
+  .ask  { background:rgba(255,177,59,.15); color:var(--pick); }
+  .pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+  figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px;
+           overflow:hidden; }
+  figure img { display:block; width:100%; height:auto; }
+  figcaption { padding:9px 12px; font-size:13px; color:var(--dim); }
+  table { border-collapse:collapse; margin:16px 0 0; font-size:14px; }
+  td,th { padding:5px 16px 5px 0; text-align:left; border-bottom:1px solid var(--line); }
+  th { color:var(--dim); font-weight:500; }
+  .opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;
+          margin-top:6px; }
+  .opt { background:var(--card); border:2px solid var(--line); border-radius:12px;
+         overflow:hidden; cursor:pointer; padding:0; color:inherit; font:inherit; text-align:left; }
+  .opt img { display:block; width:100%; height:auto; }
+  .opt b { display:block; padding:9px 12px 2px; font-size:14px; }
+  .opt span { display:block; padding:0 12px 11px; font-size:13px; color:var(--dim); }
+  .opt[aria-pressed="true"] { border-color:var(--pick); }
+  .opt[aria-pressed="true"] b { color:var(--pick); }
+  .wide { margin-top:18px; }
+  .picked { margin-top:20px; padding:14px 16px; border-radius:12px; background:var(--card);
+            border:1px solid var(--line); font-size:15px; }
+  .picked b { color:var(--pick); }
+  .foot { margin-top:36px; color:var(--dim); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Муравьи: правки по фидбеку 11 сентября</h1>
+<p class="sub">Всё снято с боевой сборки её же отрисовкой, один и тот же уровень и один и тот же момент. Отличается только правка.</p>
+
+<section>
+  <h2>1. Подписи растянуты<span class="tag done">сделано</span></h2>
+  <p class="quote">«надпись "уровень" немного сплюснута» · «После применения x2 скорости "скорость" сплющена на кнопке»</p>
+  <div class="pair">
+    <figure><img src="img/cap_before.webp" alt="было"><figcaption>было — 265 px</figcaption></figure>
+    <figure><img src="img/cap_after.webp" alt="стало"><figcaption>стало — 203 px, своя ширина шрифта</figcaption></figure>
+    <figure><img src="img/speed_before.webp" alt="было"><figcaption>было — 159 px</figcaption></figure>
+    <figure><img src="img/speed_after.webp" alt="стало"><figcaption>стало — 122 px</figcaption></figure>
+  </div>
+  <table>
+    <tr><th>строка</th><th>натурально</th><th>рисовалось</th></tr>
+    <tr><td>УРОВЕНЬ 4</td><td>203 px</td><td>265 px</td></tr>
+    <tr><td>Скорость</td><td>122 px</td><td>159 px</td></tr>
+  </table>
+  <p class="sub" style="margin-top:14px">Английский кадр и все цифры не тронуты: растяжение осталось у латиницы и у цифр, где оно измерено по оригиналу.</p>
+</section>
+
+<section>
+  <h2>2. Муравей на проигрыше<span class="tag done">сделано</span></h2>
+  <p class="quote">«у проваленного уровня картинка муравья сплюснута»</p>
+  <div class="pair">
+    <figure><img src="img/ant_before.webp" alt="было"><figcaption>было — сжат в 1.53 раза</figcaption></figure>
+    <figure><img src="img/ant_after.webp" alt="стало"><figcaption>стало</figcaption></figure>
+    <figure><img src="img/ant_orig.webp" alt="оригинал"><figcaption>оригинал, для сверки</figcaption></figure>
+  </div>
+  <p class="sub" style="margin-top:14px">Картинка муравья — лист 1024×512, рисовался в коробку 420×322. Размер теперь взят с кадра оригинала: высота совпала в 148 px против 146.</p>
+</section>
+
+<section>
+  <h2>3. Серая полоса внизу<span class="tag ask">выбери</span></h2>
+  <p class="quote">«эта серая полоса не очень выглядит, можно просто фон растянуть и полосу убрать»</p>
+  <div class="opts" id="opts">
+    <button class="opt" data-v="0"><img src="img/tray0_p.webp" alt=""><b>0 · как сейчас</b><span>панель оригинала, 446 px из 1920</span></button>
+    <button class="opt" data-v="1"><img src="img/tray1_p.webp" alt=""><b>1 · без полосы</b><span>фон идёт до самого низа</span></button>
+    <button class="opt" data-v="2"><img src="img/tray2_p.webp" alt=""><b>2 · затемнение</b><span>фон плюс мягкая тень книзу</span></button>
+    <button class="opt" data-v="3"><img src="img/tray3_p.webp" alt=""><b>3 · полупрозрачная</b><span>та же панель, сквозь неё фон</span></button>
+  </div>
+  <figure class="wide"><img id="wide" src="img/tray0_d.webp" alt="на широком экране"><figcaption id="wideCap">на широком экране — вариант 0</figcaption></figure>
+  <div class="picked" id="picked">Нажми вариант — ссылка в адресной строке запомнит выбор, её и пришли.</div>
+</section>
+
+<p class="foot">Правки 1 и 2 уже в сборке и закрыты проверками. Вариант полосы поставлю тот, который выберешь.</p>
+
+</div>
+<script>
+  var opts = document.getElementById('opts');
+  var wide = document.getElementById('wide');
+  var wideCap = document.getElementById('wideCap');
+  var picked = document.getElementById('picked');
+  var NAMES = ['как сейчас', 'без полосы', 'затемнение', 'полупрозрачная'];
+  function select(v, push) {
+    v = String(v);
+    [].forEach.call(opts.children, function (b) {
+      b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false');
+    });
+    wide.src = 'img/tray' + v + '_d.webp';
+    wideCap.textContent = 'на широком экране — вариант ' + v;
+    picked.innerHTML = 'Выбран <b>вариант ' + v + ' — ' + NAMES[v] + '</b>. Пришли ссылку из адресной строки или просто номер.';
+    if (push) history.replaceState(null, '', '?v=' + v);
+  }
+  opts.addEventListener('click', function (e) {
+    var b = e.target.closest('.opt');
+    if (b) select(b.dataset.v, true);
+  });
+  var q = new URLSearchParams(location.search).get('v');
+  if (q !== null && /^[0-3]$/.test(q)) select(q, false);
+</script>
+</body>
+</html>
